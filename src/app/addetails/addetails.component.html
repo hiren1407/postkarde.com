@@ -1,0 +1,113 @@
+<div class="container" style="margin-top:30px">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Useful Links:</h3>
+      <br/>
+      
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Facebook</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Twitter</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Linkdin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Gmail</a>
+        </li>
+      </ul>
+      <hr class="d-sm-none">
+    </div>
+    <div class="col-sm-4"  >
+      <div *ngFor="let obj of adlist">
+      <div *ngIf="regid==obj.regid">
+      <h3>Details :</h3>
+      <br/>
+      <h6>Images :</h6>
+      <br/>
+      <img src="../../assets/uploads/{{obj.adsicon}}" height='230' width='230'/>
+       <br/>
+       <hr/>
+       <br/>
+       <h6 >Model : </h6>
+       <p>{{obj.title}}</p>
+       <br/>
+       <h6 >Description :</h6>
+       <p>{{obj.description}}</p>
+       <br/>
+       <h6 >City :</h6>
+       <p>{{obj.city}}</p>
+       <br/>
+       <h6 >Price :</h6>
+       <p>{{obj.price}}</p>
+       <br/>
+       <form #form action = "https://www.sandbox.paypal.com/cgi-bin/webscr" method="POST" >
+        <!-- Identify your business so that you can collect the payments. -->
+        <input type="hidden" name="business" value="{{paypalID}}" >
+        
+        <!-- Specify a Buy Now button. -->
+        <input type="hidden" name="cmd" value="_xclick" >
+        
+        <!-- Specify details about the item that buyers will purchase. -->
+        <input type="hidden" name="item_name" value="{{subcnm}}" >
+        <input type="hidden" name="item_number" value="1" >
+        <input type="hidden" name="amount" value="{{obj.price}}" >
+        <input type="hidden" name="currency_code" value="USD" >
+        
+        <!-- Specify URLs -->
+        <input type='hidden' name='cancel_return' value='http://localhost:3000/cancel' >
+        
+        <input type='hidden' name='return' value='http://localhost:3000/success' >
+        
+        <!-- Display the payment button. -->
+        <input (click)="form.submit()" type="image" name="submit" 
+        src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online">
+        <img alt=""  width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+      </form>
+      <br/>
+
+</div>
+</div>
+            
+  </div>
+  <div class="col-sm-4"  >
+    <div *ngFor="let obj of adlist">
+        <div *ngIf="regid==obj.regid">
+    <h3>Seller Information :</h3>
+    
+    <br/>
+    <h6>Name :</h6>
+    
+    <p>{{obj.nm}}</p>
+    
+     <br/>
+     
+     <h6 >Email :</h6>
+     
+     <p>{{obj.email}}</p>
+     <br/>
+     <h6 >Mobile :</h6>
+     <p>{{obj.mobile}}</p>
+     <br/>
+     <h6>Chat with seller :</h6>
+     <form #message = "ngForm" (ngSubmit) = "sendMessage(message.value)" novalidate>
+      <input  type="hidden" placeholder="Message" name="email"  [(ngModel)]="obj.email" />
+    <input  type="message" placeholder="Message" name="message" ngModel />
+    
+    <button>Send</button>
+  </form>  
+  <br/>
+  
+
+    
+          
+</div>
+</div>
+</div>
+
+      <br/>
+    </div>
+  </div>
+

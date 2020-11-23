@@ -1,0 +1,44 @@
+<div class="container" style="margin-top:30px">
+    <div class="row">
+      <div class="col-sm-4">
+        <h3>Useful Links:</h3>
+        <br/>
+        
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Facebook</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Twitter</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Linkdin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Gmail</a>
+          </li>
+        </ul>
+        <hr class="d-sm-none">
+      </div>
+      <div class="col-sm-8">
+        <h1>Welcome To PostKrde.com</h1>
+        <br/>
+
+        <div id="catdiv" *ngFor="let obj of clist">
+        	
+        	<div class="catdivp" style="text-align:center" (click)="passdata({'cnm':obj.cnm})">
+        	
+        	<img src="../../assets/uploads/{{obj.cicon}}" height="80" width="100" class="rounded-corners"/>
+        	<br><br>
+        	<b>{{obj.cnm}}</b>
+        	
+        	</div>
+        
+        	
+        </div>           
+    </div>
+
+        <br/>
+      </div>
+    </div>
+  

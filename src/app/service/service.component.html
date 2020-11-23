@@ -1,0 +1,48 @@
+
+<div class="container" style="margin-top:30px">
+    <div class="row">
+      <div class="col-sm-4">
+        <h3>Useful Links:</h3>
+        <br/>
+        
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Facebook</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Twitter</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Linkdin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Gmail</a>
+          </li>
+        </ul>
+        <hr class="d-sm-none">
+      </div>
+      <div class="col-sm-8">
+        <h1>Service Page</h1>
+        <br/>
+        
+        <table border="3" cellspacing="10" cellpadding="10">
+          <tr>
+          <th>Id</th>
+          <th>UserId</th>
+          <th>Title</th>
+          <th>Body</th>
+          </tr>
+          
+          <tr *ngFor="let user of data">
+            <td>{{user.id}}</td>
+            <td>{{user.userId}}</td>
+            <td>{{user.title}}</td>
+            <td>{{user.body}}</td>
+          </tr>
+          
+          </table>
+<br/>
+        
+      </div>
+    </div>
+  </div>

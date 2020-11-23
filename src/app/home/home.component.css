@@ -1,0 +1,17 @@
+#catdiv
+ {
+   height:auto;
+   width:600px;
+ }
+  .catdivp
+ {
+   
+   height:150px;
+   width:200px;
+   float:left;
+ }
+ img.rounded-corners {
+
+  border-radius: 20px;
+
+}

@@ -1,0 +1,115 @@
+<div class="container" style="margin-top:30px">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Useful Links:</h3>
+      <br/>
+      
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Facebook</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Twitter</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Linkdin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Gmail</a>
+        </li>
+      </ul>
+      <hr class="d-sm-none">
+    </div>
+    <div class="col-sm-8">
+      <h1>Post Ads Here!!!</h1>
+
+      <br/>
+          <h3 style="color:orange;">{{o}}</h3>
+          <br/>
+              
+           <form #uservalue = "ngForm" (ngSubmit) = "onClickSubmit(uservalue.value)" enctype="multipart/form-data">
+            <table>
+              <tr>
+              <td><label>Title</label></td>
+              <td><input type="text" name="title" ngModel/></td>
+              </tr>
+              <tr>
+              <td><label>Ads Category</label></td>
+              <td>
+              <select name="subcnm" ngModel>
+              <option hidden>Select Ads Category</option>
+              
+              <option *ngFor="let obj of sclist">{{obj.subcnm}}</option>
+              </select>
+              </td>
+              </tr>
+              <tr>
+              <td><label>Ads Description</label></td>
+              <td>
+              <textarea name="description" rows="5" cols="30" ngModel></textarea>
+              </td>
+              </tr>
+              <tr>
+              <td><label>Price</label></td>
+              <td><input type="text" name="price" ngModel /></td>
+              </tr>
+              <tr>
+              <td><label>Name</label></td>
+              <td><input type="text" name="nm" ngModel /></td>
+              </tr>
+            
+              <tr>
+              <td><label>Mobile</label></td>
+              <td><input type="text" name="mobile" ngModel /></td>
+              </tr>
+              
+              
+              <tr>
+              <td><label>Ads Images</label></td>
+              <td><input type="file" (change)="onFileSelected($event)" name="adsicon" /></td>
+              </tr>
+              
+              <tr>
+              <td><label>City</label></td>
+              <td>
+              <select name="city" ngModel>
+              <option >Select City</option>
+              <option>Indore</option>
+              <option>Bhopal</option>
+              <option>Jabalpur</option>
+              </select>
+              </td>
+          </tr>
+          
+              <tr>
+              <td>
+             
+                
+             
+            <input type="submit"  value="ADD" />
+         </td>
+              </tr>
+              
+            </table>	
+           <br/>
+           </form>
+
+
+
+
+
+
+
+
+
+
+
+
+           
+        
+        
+  </div>
+
+      <br/>
+    </div>
+  </div>

@@ -1,0 +1,65 @@
+<div class="container" style="margin-top:30px">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Useful Links:</h3>
+      <br/>
+      
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Facebook</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Twitter</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Linkdin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Gmail</a>
+        </li>
+      </ul>
+      <hr class="d-sm-none">
+    </div>
+    <div class="col-sm-8">
+        <h2>Add SubCategory here!!!</h2>
+        <br/>
+        <h3>{{o}}</h3>
+        <br/>
+        
+      <form #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td><label>Sub Category Name</label></td>
+                <td><input type="text" name="subcnm" ngModel/></td>
+                </tr>
+
+          
+
+                <tr>
+                    <td><label>Category</label></td>
+                    <td>
+                    <select name="cnm" ngModel >
+                    
+                      <option hidden>Select Category</option>
+                      <option *ngFor="let obj of clist" >{{obj.cnm}}</option>
+                    
+                    </select>
+                    </td>
+                    </tr>
+
+            <tr>
+            <td><label>SubCategory Icon</label></td>
+            <td><input type="file" (change)="onFileSelected($event)" name="subcicon"  /></td>
+            </tr>
+         
+            <tr>
+            <td><input type="submit" name="s" value="Add SubCategory"  /></td>
+            </tr>
+        </table>	
+       
+        </form>
+      
+      <br/>
+    </div>
+  </div>
+</div>

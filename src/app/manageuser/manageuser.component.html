@@ -1,0 +1,61 @@
+<div class="container" style="margin-top:30px">
+    <div class="row">
+      <div class="col-sm-4">
+        <h3>Useful Links:</h3>
+        <br/>
+        
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Facebook</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Twitter</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Linkdin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Gmail</a>
+          </li>
+        </ul>
+        <hr class="d-sm-none">
+      </div>
+      <div class="col-sm-8">
+        <h1>Manage Users!!!</h1>
+        <br/>
+        
+        <table border="3" cellspacing="10" cellpadding="10">
+          <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Gender</th>
+          <th>City</th>
+          <th>Action</th>
+          </tr>
+          
+          <tr *ngFor="let user of data">
+            <td>{{user.nm}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.address}}</td>
+            <td>{{user.gender}}</td>
+            <td>{{user.city}}</td>
+            <td>
+              
+              <img (click)='action({"email":user.email,"value":"delete"})' src="../../assets/images/delete.jpg" height="50px" width="50px">
+              &nbsp;
+              &nbsp;
+              
+              <img *ngIf="check(user)" (click)='action({"email":user.email,"value":"block"})' src="../../assets/images/block.png" height="50px" width="50px">
+              <img *ngIf="!check(user)" (click)='action({"email":user.email,"value":"unblock"})' src="../../assets/images/unblock.jpg" height="50px" width="50px">
+              
+            
+            </td>
+          </tr>
+          
+          </table>
+        
+        <br/>
+      </div>
+    </div>
+  </div>

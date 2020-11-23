@@ -1,0 +1,50 @@
+<div class="container" style="margin-top:30px">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Useful Links:</h3>
+      <br/>
+      
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Facebook</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Twitter</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Linkdin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Gmail</a>
+        </li>
+      </ul>
+      <hr class="d-sm-none">
+    </div>
+    <div class="col-sm-8">
+        <h2>Add Category here!!!</h2>
+        <br/>
+        <h3>{{o}}</h3>
+        <br/>
+        
+      <form #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)" >
+        <table>
+          <tr>
+            <td><label>Category Name</label></td>
+            <td><input type="text" name="cnm" ngModel /></td>
+            </tr>
+            <tr>
+            <td><label>Category Icon</label></td>
+            <td><input type="file" (change)="onFileSelected($event)" name="cicon"  /></td>
+            </tr>
+         
+            <tr>
+            <td><input type="submit" name="s" value="Add Category"  /></td>
+            </tr>
+        </table>	
+       
+        </form>
+      
+      <br/>
+    </div>
+  </div>
+</div>

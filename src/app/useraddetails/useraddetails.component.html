@@ -1,0 +1,124 @@
+<div class="container" style="margin-top:30px">
+    <div class="row">
+      <div class="col-sm-4">
+        <h3>Useful Links:</h3>
+        <br/>
+        
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Facebook</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Twitter</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Linkdin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Gmail</a>
+          </li>
+        </ul>
+        <hr class="d-sm-none">
+      </div>
+      <div class="col-sm-8"  >
+          
+ 
+        <div *ngFor="let obj of adlist">
+        <div *ngIf="regid==obj.regid">
+        <h3>Details :</h3>
+        <br/>
+        <h4 style="color:orange;">{{o}}</h4>
+          <br/>
+        <h6>Images :</h6>
+        <br/>
+        <img src="../../assets/uploads/{{obj.adsicon}}" height='230' width='230'/>
+         <br/>
+         <hr/>
+         <br/>
+         
+         
+         <form #advalues = "ngForm" (ngSubmit) = "onClickSubmit(advalues.value)" novalidate>
+            <table>
+              
+              <tr>
+                <td>
+                  <div class="form-group">
+                      <label>Model</label>
+                      <input type="text" #name="ngModel" required class="form-control" [class.is-invalid]="name.invalid && name.touched" name="title" [(ngModel)]="obj.title">
+                      <small class="text-danger" [class.d-none]="name.valid || name.untouched">Model Name is required</small>
+                  </div>
+                </td>
+              
+              </tr>
+              <tr>
+                  <td>
+                      <div class="form-group">
+                          <label>Price</label>
+                          <input type="text" #price="ngModel" required class="form-control" [class.is-invalid]="price.invalid && price.touched" name="price" [(ngModel)]="obj.price">
+                          <small class="text-danger" [class.d-none]="price.valid || price.untouched">Price is required</small>
+                      </div>
+                    </td>
+              
+              </tr>
+             
+              <tr>
+                  <td>
+                      <div class="form-group">
+                          <label>Description</label>
+                          <textarea rows="5" cols="30" #desc="ngModel" required class="form-control" [class.is-invalid]="desc.invalid && desc.touched" name="description" [(ngModel)]="obj.description"></textarea>
+                          <small class="text-danger" [class.d-none]="desc.valid || desc.untouched">Description is required</small>
+                      </div>
+                    </td>
+              
+              </tr>
+              <tr>
+                  <td>
+                    <div class="form-group">
+                        <label>Mobile</label>
+                        <input type="text" #mobile="ngModel" required class="form-control" [class.is-invalid]="mobile.invalid && mobile.touched" name="mobile" [(ngModel)]="obj.mobile">
+                        <small class="text-danger" [class.d-none]="mobile.valid || mobile.untouched">Mobile is required</small>
+                    </div>
+                  </td>
+                
+                </tr>
+              <tr>
+    
+                  <div class="form-group">
+                      <label>City</label>
+                      <select class="browser-default custom-select" (blur)="validateCity(city.value)" (change)="validateCity(city.value)"  #city="ngModel" [class.is-invalid]="cityHasError && city.touched" name="city" [(ngModel)]="obj.city">
+                          <option  value="default" selected>Please Select City</option>
+                          <option>Indore</option>
+                          <option>Bhopal</option>
+                          <option>Jabalpur</option>
+                      </select>
+                      <small class="text-danger" [class.d-none]="!cityHasError || city.untouched">Please choose a City</small>      
+                    </div>
+                
+                  
+              </tr>
+              <tr>
+              <td>
+                  <input type="hidden" name="id"  [(ngModel)]="obj.regid"/>
+                  <button class="btn btn-primary" [disabled]="advalues.form.invalid || cityHasError" type="submit">Save</button>
+              
+              </td>
+              </tr>
+              
+            </table>	
+            <br/>
+            </form>  
+            <div>
+            <button class="btn btn-primary" (click)="deletead({'regid':obj.regid})">Delete Ad</button>
+            <hr/>
+            </div>
+  
+  </div>
+  </div>
+              
+    </div>
+    
+        <br/>
+      </div>
+    </div>
+  
+  
